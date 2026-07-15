@@ -5,7 +5,7 @@ from datetime import datetime
 TOKEN = os.environ["BOT_TOKEN"]
 API_KEY = os.environ["WEATHER_API_KEY"]
 CHAT_ID = os.environ["CHAT_ID"]
-CITY = "Tashkent"
+CITY = "Samarqand"
 
 WEATHER_EMOJI = {
     "Clear": "☀️",
