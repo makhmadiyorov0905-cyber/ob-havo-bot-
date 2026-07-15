@@ -1,0 +1,28 @@
+name: Kunlik ob-havo xabari
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  send-weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodni olish
+        uses: actions/checkout@v4
+
+      - name: Python o'rnatish
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kutubxonalarni o'rnatish
+        run: pip install requests
+
+      - name: Botni ishga tushirish
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python ob_havo_bot.py
